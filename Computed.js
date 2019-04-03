@@ -8,9 +8,8 @@ function Computed(obj, key, comFunc) {
     // 绑定调用函数的对象(需优化)
     comFUnc = comFunc.bind(sv.data); 
     /* 更新视图函数 */
-    ComState = function() {
-        value = comFunc();
-        sv.data.say = value; // 更新内容(触发Observe的set() => Watcher的回调函数)
+    ComState = function() { 
+        sv.data.say = comFunc();// 更新内容(触发Observe的set() => Watcher的回调函数)
     };
     let value = comFunc(); // 初始化计算结果
     sv.data.say = value; // 初始化 
