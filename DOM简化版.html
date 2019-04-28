@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="put1"><br>
+    <input type="text" id="put2">
+
+    <div class="d1">
+        <div class="d2">
+            <p>abcdefg</p>
+        </div>
+    </div>
+
+    <script>
+        var put1 = document.querySelector('#put1'),
+            put2 = document.querySelector('#put2'),
+            div = document.querySelector('.d1');
+
+
+        put1.addEventListener('input', () => {
+            put2.value = put1.value
+        });
+        put2.addEventListener('input', () => {
+            put1.value = put2.value
+        });
+
+        while(div.firstChild) {
+            console.log('1');
+        }
+
+
+    </script>
+</body>
+
+</html>

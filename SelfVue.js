@@ -6,10 +6,12 @@ function SelfVue(object) {
     this.vm = this; // 绑定自身作用域
     this.data = object.data; // 绑定数据
     this.methods = object.methods; //绑定方法
+    this.computed = object.computed; //绑定计算属性
     // 属性访问代理,使得 实例.属性名 = 实例.data.属性名
     Object.keys(this.data).forEach( key => this.proxykeys(key));
     observe(this.data); // 遍历数据，是每个属性为响应式
     new Compile(object.el, this.vm); //绑定页面DOM元素，并且解析指令
+    computed(object.computed, this.vm);
     return this;
 }
 

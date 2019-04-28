@@ -16,7 +16,7 @@
         双向绑定： <h1>{{name}}</h1>
         双向绑定： <input type="text" v-model="name">
         <hr>
-        计算属性(v-model)： <h1 id="cmp">{{say}}</h1>
+        计算属性(computed)：<h1 id="cmp">{{ sayhello }}</h1>
         <hr>
         指令(v-on:click)： <input type="button" v-on:click="changeColor" value="改变计算属性的颜色">
     </div>
@@ -32,16 +32,22 @@
                 changeColor() {
                     document.querySelector('#cmp').style.color = 'deepskyblue';
                 }
+            },
+            computed: {
+                sayhello: function() {
+                    return `hello ${this.name}`
+                }
             }
         });
-        var obj = {
-            say: ''
-        }
-        Computed(obj, 'say', function() {
-            return `Hello ${sv.name} !`;
-        })
+       // console.log(sv.computed.sayhello);
+        // var obj = {
+        //     say: ''
+        // }
+        // Computed(obj, 'say', function() {
+        //     return `Hello ${sv.name} !`;
+        // })
         window.setTimeout(()=> {
-            sv.name = 'SPRWU'
+            sv.name = 'SPRWU';
         },2000);
     </script>
 </body>
