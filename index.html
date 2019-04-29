@@ -26,7 +26,6 @@
             el: '#demo',
             data: {
                 name: 'SprWu',
-                say: ''
             },
             methods: {
                 changeColor() {
@@ -35,17 +34,11 @@
             },
             computed: {
                 sayhello: function() {
-                    return `hello ${this.name}`
+                    return `Hello ${this.name}`
                 }
             }
         });
-       // console.log(sv.computed.sayhello);
-        // var obj = {
-        //     say: ''
-        // }
-        // Computed(obj, 'say', function() {
-        //     return `Hello ${sv.name} !`;
-        // })
+       
         window.setTimeout(()=> {
             sv.name = 'SPRWU';
         },2000);
